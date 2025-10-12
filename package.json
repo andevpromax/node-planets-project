@@ -1,20 +1,22 @@
 {
-  "name": "node-planets-project",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "csv-parse": "^6.1.0"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "2.2.5",
-    "husky": "^9.1.7"
-  }
+	"name": "node-planets-project",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"prepare": "husky",
+		"precommit": "pnpm run lint:fix && git add .",
+		"lint": "biome check .",
+		"lint:fix": "biome check . --write"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"csv-parse": "^6.1.0"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.2.5",
+		"husky": "^9.1.7"
+	}
 }
