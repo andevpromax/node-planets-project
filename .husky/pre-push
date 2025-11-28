@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "Running pre-push checks..."
+
+# Перевірка коду
+pnpm biome check .
+
+# Якщо тести є — запускаємо
+if [ -f "package.json" ]; then
+	if pnpm run | grep -q "test"; then
+        pnpm test
+	fi
+fi

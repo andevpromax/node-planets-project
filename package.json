@@ -5,9 +5,13 @@
 	"main": "index.js",
 	"scripts": {
 		"prepare": "husky",
-		"precommit": "pnpm run lint:fix && git add .",
 		"lint": "biome check .",
 		"lint:fix": "biome check . --write"
+	},
+	"lint-staged": {
+		"*.{js,json}": [
+			"biome check --write"
+		]
 	},
 	"keywords": [],
 	"author": "",
@@ -17,6 +21,7 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.2.5",
-		"husky": "^9.1.7"
+		"husky": "^9.1.7",
+		"lint-staged": "^16.2.7"
 	}
 }
